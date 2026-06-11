@@ -43,6 +43,7 @@ function PackPlugins.setup()
         'https://github.com/j-hui/fidget.nvim',
 
         -- Autocompletion + snippets
+        'https://github.com/saghen/blink.lib', -- required by blink.cmp v2+
         'https://github.com/saghen/blink.cmp',
         {
             src = 'https://github.com/L3MON4D3/LuaSnip',
