@@ -63,8 +63,8 @@ function PackPlugins.setup()
         -- Collection of small independent modules (ai, surround, pairs, statusline, icons)
         "https://github.com/echasnovski/mini.nvim",
 
-        -- Syntax highlighting and more via tree-sitter
-        "https://github.com/nvim-treesitter/nvim-treesitter",
+        -- Manage tree-sitter parsers
+        "https://github.com/romus204/tree-sitter-manager.nvim",
 
         -- Indentation guides
         "https://github.com/lukas-reineke/indent-blankline.nvim",
@@ -75,31 +75,6 @@ function PackPlugins.setup()
 
         -- Rust convenience
         "https://github.com/mrcjkb/rustaceanvim.git",
-    })
-
-    -- Re-run treesitter parser install whenever plugins change
-    -- (replaces lazy.nvim's  build = ':TSUpdate')
-    vim.api.nvim_create_autocmd("PackChanged", {
-        desc = "Update treesitter parsers after plugin changes",
-        once = true,
-        callback = function()
-            local ts = require("nvim-treesitter")
-            ts.install({
-                "java",
-                "c",
-                "lua",
-                "vim",
-                "vimdoc",
-                "html",
-                "yaml",
-                "rust",
-                "cpp",
-                "json",
-                "markdown",
-                "markdown_inline",
-                "csv",
-            })
-        end,
     })
 
     -- [[ Configure plugins ]]
@@ -116,7 +91,7 @@ function PackPlugins.setup()
     require("plugins.todo-comments-config").setup()
     require("plugins.oil-config").setup()
     require("plugins.mini-config").setup()
-    require("plugins.nvim-treesitter-config").setup()
+    require("plugins.tree-sitter-manager-config").setup()
     require("plugins.indent-line-config").setup()
     require("plugins.northsea-config").setup()
     require("plugins.dap-config").setup()
