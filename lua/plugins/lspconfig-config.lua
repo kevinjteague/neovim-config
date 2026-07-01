@@ -107,6 +107,11 @@ function M.setup()
     require("mason-lspconfig").setup({
         ensure_installed = {},
         automatic_installation = false,
+        automatic_enable = {
+            exclude = {
+                "rust_analyzer",
+            },
+        },
         handlers = {
             rust_analyzer = function() end,
             function(server_name)
